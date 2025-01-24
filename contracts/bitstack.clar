@@ -44,3 +44,18 @@
         minimum-votes: uint
     }
 )
+
+(define-map UserPositions
+    principal
+    {
+        total-collateral: uint,
+        total-debt: uint,
+        health-factor: uint,
+        last-updated: uint,
+        stx-staked: uint,
+        analytics-tokens: uint,
+        voting-power: uint,
+        tier-level: uint,
+        rewards-multiplier: uint
+    }
+)
