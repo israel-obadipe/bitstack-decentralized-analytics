@@ -102,17 +102,6 @@
     )
 )
 
-
-(define-private (calculate-lock-multiplier (lock-period uint))
-    (if (>= lock-period u8640)     ;; 2 months
-        u150                       ;; 1.5x multiplier
-        (if (>= lock-period u4320) ;; 1 month
-            u125                   ;; 1.25x multiplier
-            u100                   ;; 1x multiplier (no lock)
-        )
-    )
-)
-
 (define-private (calculate-rewards (user principal) (blocks uint))
     (let
         (
