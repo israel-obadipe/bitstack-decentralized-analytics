@@ -330,3 +330,32 @@
         (ok true)
     )
 )
+
+(define-public (pause-contract)
+    (begin
+        (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-NOT-AUTHORIZED)
+        (var-set contract-paused true)
+        (ok true)
+    )
+)
+
+(define-public (resume-contract)
+    (begin
+        (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-NOT-AUTHORIZED)
+        (var-set contract-paused false)
+        (ok true)
+    )
+)
+
+;; read only functions
+(define-read-only (get-contract-owner)
+    (ok CONTRACT-OWNER)
+)
+
+(define-read-only (get-stx-pool)
+    (ok (var-get stx-pool))
+)
+
+(define-read-only (get-proposal-count)
+    (ok (var-get proposal-count))
+)
